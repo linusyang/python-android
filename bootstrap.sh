@@ -7,12 +7,12 @@ if [ ! -e 'Python-2.7.2.tgz' ]; then
 fi
 
 if [ ! -e 'Python-host' ]; then
-    tar zxvf Python-2.7.2.tgz
+    tar zxf Python-2.7.2.tgz
     mv Python-2.7.2 Python-host
 fi
 
 if [ ! -e 'Python' ]; then
-    tar zxvf Python-2.7.2.tgz
+    tar zxf Python-2.7.2.tgz
     mv Python-2.7.2 Python
     cd $ROOTDIR/Python
     patch -p1 < ../patch/Python-2.7.2-xcompile.patch

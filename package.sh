@@ -32,5 +32,5 @@ cd $ROOTDIR/release/$PACKAGE/extras/python/
 rm `find . | grep -v "so$\|py$"`
 rm -r `find . | grep test`
 
-adb push $ROOTDIR/release/$PACKAGE/files/ /data/data/$PACKAGE/files
-adb push $ROOTDIR/release/$PACKAGE/extras/ /mnt/sdcard/$PACKAGE/extras
+#adb push $ROOTDIR/release/$PACKAGE/files/ /data/data/$PACKAGE/files
+#adb push $ROOTDIR/release/$PACKAGE/extras/ /mnt/sdcard/$PACKAGE/extras
