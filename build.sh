@@ -4,7 +4,7 @@ export ROOTDIR=$(dirname $(readlink -f $0))
 export HOSTPYTHON=$ROOTDIR/hostpython
 export HOSTPGEN=$ROOTDIR/hostpgen
 
-export NDK="$HOME/android/android-ndk-r7c"
+export NDK="$HOME/android/android-ndk-r8"
 export SDK="$HOME/android/android-sdk-linux/"
 export NDKPLATFORM="$NDK/platforms/android-9/arch-arm"
 
@@ -43,6 +43,7 @@ build_jni() {
 
 build_openssl() {
     cd $ROOTDIR/openssl
+    patch -p1 < ../patch/openssl.patch
     ndk-build
     cp -r $ROOTDIR/openssl/obj $ROOTDIR/obj
 }

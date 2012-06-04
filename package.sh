@@ -7,6 +7,7 @@ fi
 
 export ROOTDIR=$(dirname $(readlink -f $0))
 export PACKAGE=$1
+export VIRTUAL_ENV="$ROOTDIR/build"
 
 yes | rm -r $ROOTDIR/release/$PACKAGE
 
@@ -29,8 +30,8 @@ cp -r $ROOTDIR/build/lib/python2.7/* $ROOTDIR/release/$PACKAGE/extras/python/
 cp -r $VIRTUAL_ENV/lib/python2.7/site-packages $ROOTDIR/release/$PACKAGE/files/python/lib/python2.7/site-packages
 
 cd $ROOTDIR/release/$PACKAGE/extras/python/
-rm `find . | grep -v "so$\|py$"`
-rm -r `find . | grep test`
+rm -f `find . | grep -v "so$\|py$"`
+rm -rf `find . | grep test`
 
 #adb push $ROOTDIR/release/$PACKAGE/files/ /data/data/$PACKAGE/files
 #adb push $ROOTDIR/release/$PACKAGE/extras/ /mnt/sdcard/$PACKAGE/extras
